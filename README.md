@@ -14,10 +14,8 @@ cd movie-management
 ```bash
 cd backend
 npm install
-# macOS / Linux
-cp .env.example .env
-# Window CMD
-copy .env.example .env
+cp .env.example .env # macOS / Linux
+copy .env.example .env # Window CMD
 npx prisma migrate deploy
 npx prisma generate
 npm run dev
