@@ -22,7 +22,7 @@ npm run dev
 ```
 ---
 
-## Backend Setup
+## Frontend Setup
 
 ```bash
 cd frontend
