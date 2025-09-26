@@ -1,11 +1,15 @@
-## Setup Instructions
+# Setup Instructions
 
 ---
+
+## Clone Project
 
 ```bash
 git clone https://github.com/Naridz/movie-management.git
 cd movie-management
 ```
+
+## Backend Setup
 
 ```bash
 cd backend
@@ -16,6 +20,8 @@ npx prisma generate
 npm run dev
 ```
 ---
+
+## Backend Setup
 
 ```bash
 cd frontend
