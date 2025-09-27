@@ -73,14 +73,14 @@ const Movies = () => {
             <div className="flex justify-between items-center mt-4">
               <Link
                 to={`/edit/${movie.id}`}
-                className="text-blue-600 hover:underline">
+                className="border text-blue-600 py-3 px-4 rounded-full hover:text-white hover:bg-blue-600 transition">
                 Edit
               </Link>
 
               {isManager && (
                 <button
                   onClick={() => handleDelete(movie.id)}
-                  className="text-red-600 hover:underline cursor-pointer">
+                  className="border text-red-600 py-3 px-4 rounded-full hover:text-white hover:bg-red-600 transition">
                   Delete
                 </button>
               )}
