@@ -16,7 +16,7 @@ cd backend
 npm install
 cp .env.example .env # macOS / Linux
 copy .env.example .env # Window CMD
-npx prisma migrate deploy
+npx prisma db push
 npx prisma generate
 npm run dev
 ```
