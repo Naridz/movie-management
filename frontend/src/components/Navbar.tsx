@@ -22,25 +22,53 @@ const Navbar = () => {
   }
 
   return (
-    <nav className="shadow-xl text-gray-300 bg-gray-800">
-      <div className="container mx-auto">
-        <div className="flex justify-between items-center p-8">
-          <div>
-            <Link to={"/"}><img src={reactLogo} alt="React Logo" className="w-10 h-10" /></Link>
-          </div>
-          <ul className="flex">
+    <nav className="bg-white shadow-lg border-b border-slate-200 sticky top-0 z-50">
+      <div className="container mx-auto px-4">
+        <div className="flex justify-between items-center h-16">
+          <Link to={"/"} className="flex items-center gap-3 group">
+            <div className="p-2 bg-gradient-to-r from-blue-500 to-purple-600 rounded-xl shadow-md group-hover:shadow-lg transition-shadow">
+              <img src={reactLogo} alt="React Logo" className="w-6 h-6" />
+            </div>
+            <span className="text-xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+              Movie
+            </span>
+          </Link>
+          
+          <div className="flex items-center gap-3">
             {!isLog ? (
               <>
-              <li className='mx-3'><Link className="bg-gray-500 hover:bg-gray-600 text-white font-semibold py-2 px-4 rounded transition duration-300" to={"/login"}>Login</Link></li>
-              <li className='mx-3'><Link className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded transition duration-300" to={"/register"}>Sign up</Link></li>
+                <Link 
+                  to="/login" 
+                  className="px-5 py-2 text-slate-700 font-medium hover:text-slate-900 transition-colors"
+                >
+                  Sign In
+                </Link>
+                <Link 
+                  to="/register" 
+                  className="px-5 py-2 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold rounded-xl hover:shadow-lg transform hover:scale-105 transition-all duration-200"
+                >
+                  Get Started
+                </Link>
               </>
-            ):(
+            ) : (
               <>
-              <Link to="/movies" className='bg-gray-500 hover:bg-gray-600 text-white mx-4 font-semibold py-2 px-4 rounded transition duration-300'>Movie</Link>
-              <button onClick={handleLogout} className='bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded cursor-pointer transition duration-300'>Logout</button>
+                <Link 
+                  to="/movies" 
+                  className="px-5 py-2 text-slate-700 font-medium hover:text-slate-900 transition-colors flex items-center gap-2"
+                >
+                  <span>🎬</span>
+                  Movies
+                </Link>
+                <button 
+                  onClick={handleLogout} 
+                  className="px-5 py-2 bg-gradient-to-r from-red-500 to-pink-600 text-white font-semibold rounded-xl hover:shadow-lg transform hover:scale-105 transition-all duration-200 flex items-center gap-2"
+                >
+                  <span>🚪</span>
+                  Logout
+                </button>
               </>
             )}
-          </ul>
+          </div>
         </div>
       </div>
     </nav>

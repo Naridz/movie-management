@@ -41,52 +41,91 @@ const Create = () => {
         }
 
   return (
-    <div className="container mx-auto p-8">
-        <Link to={'/movies'} className="inline-block mb-6 px-4 py-3 rounded-full font-medium transition cursor-pointer bg-slate-800 text-white hover:bg-slate-700">
-        ← Back
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
+      <div className="container mx-auto px-4 py-8 max-w-2xl">
+        <Link 
+          to="/movies" 
+          className="inline-flex items-center gap-2 px-4 py-2 mb-6 text-slate-600 hover:text-slate-800 font-medium transition-colors"
+        >
+          <span className="text-lg">←</span>
+          Back to Movies
         </Link>
-        <h1 className="text-2xl font-bold mb-4">Create New Movie</h1>
+        
+        <div className="bg-white rounded-2xl shadow-xl border border-slate-200 overflow-hidden">
+          <div className="h-2 bg-gradient-to-r from-blue-500 to-purple-600"></div>
+          <div className="p-8">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="p-3 bg-gradient-to-r from-blue-500 to-purple-600 rounded-xl shadow-lg">
+                <span className="text-white text-xl font-bold">+</span>
+              </div>
+              <h1 className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                Create New Movie
+              </h1>
+            </div>
 
-        <form onSubmit={handleSubmit}>
-        {error && (
-          <div className="bg-red-700 text-white py-2 px-4 rounded mb-4">{error}</div>
-        )}
-        {success && (
-          <div className="bg-green-600 text-white py-2 px-4 rounded mb-4">{success}</div>
-        )}
+            <form onSubmit={handleSubmit} className="space-y-6">
+              {error && (
+                <div className="flex items-center gap-3 p-4 bg-red-50 border border-red-200 rounded-xl">
+                  <span className="text-red-500 text-xl">⚠️</span>
+                  <span className="text-red-700 font-medium">{error}</span>
+                </div>
+              )}
+              
+              {success && (
+                <div className="flex items-center gap-3 p-4 bg-green-50 border border-green-200 rounded-xl">
+                  <span className="text-green-500 text-xl">✅</span>
+                  <span className="text-green-700 font-medium">{success}</span>
+                </div>
+              )}
 
-        <input
-          type="text"
-          placeholder="Enter title"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-          className="w-full border border-gray-300 rounded py-2 px-3 mb-4"
-        />
-        <input
-          type="number"
-          placeholder="Enter Year"
-          value={year}
-          onChange={(e) => setYear(parseInt(e.target.value))}
-          min={1}
-          className="w-full border border-gray-300 rounded py-2 px-3 mb-4"
-        />
-        <select
-        value={rating}
-        onChange={(e) => setRating(e.target.value)}
-        className="w-full border border-gray-300 rounded py-2 px-3 mb-4">
-            <option value="G">G</option>
-            <option value="PG">PG</option>
-            <option value="M">M</option>
-            <option value="MA">MA</option>
-            <option value="R">R</option>
-        </select>
+              <div className="space-y-2">
+                <label className="text-sm font-semibold text-slate-700">Movie Title</label>
+                <input
+                  type="text"
+                  placeholder="Enter movie title"
+                  value={title}
+                  onChange={(e) => setTitle(e.target.value)}
+                  className="w-full px-4 py-3 border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                />
+              </div>
 
-        <button
-          type="submit"
-          className="bg-sky-600 hover:bg-sky-700 text-white font-semibold py-2 px-4 rounded">
-          Create
-        </button>
-      </form>
+              <div className="space-y-2">
+                <label className="text-sm font-semibold text-slate-700">Release Year</label>
+                <input
+                  type="number"
+                  placeholder="Enter release year"
+                  value={year}
+                  onChange={(e) => setYear(parseInt(e.target.value))}
+                  min={1}
+                  className="w-full px-4 py-3 border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                />
+              </div>
+
+              <div className="space-y-2">
+                <label className="text-sm font-semibold text-slate-700">Rating</label>
+                <select
+                  value={rating}
+                  onChange={(e) => setRating(e.target.value)}
+                  className="w-full px-4 py-3 border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all appearance-none bg-white"
+                >
+                  <option value="G">G - General Audiences</option>
+                  <option value="PG">PG - Parental Guidance</option>
+                  <option value="M">M - Mature</option>
+                  <option value="MA">MA - Mature Accompanied</option>
+                  <option value="R">R - Restricted</option>
+                </select>
+              </div>
+
+              <button
+                type="submit"
+                className="w-full py-3 px-6 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transform hover:scale-[1.02] transition-all duration-200"
+              >
+                Create Movie
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
   )
 }
